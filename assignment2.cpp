@@ -20,28 +20,36 @@ public:
 		res.imag = imag*obj.real+real*obj.imag; 
 		return res; 
 	} 
-	void print() { cout << real << " + i" << imag << endl; } 
+	
+	Complex operator >> (Complex &obj)  {
+	               cout<<"enter real part"<<endl;
+	               cin>>real;
+	               cout<<"enter imaganary part"<<endl;
+	               cin>>imag;
+	               cout<<"enter real part"<<endl;
+	               cin>>obj.real;
+	               cout<<"enter imaganary part"<<endl;
+	               cin>>obj.imag;
+	               }
+	Complex operator << (Complex  &obj) { 
+	 
+		cout << real << " + i" << imag << endl;
+		} 
 }; 
 
 int main() 
 {        
 	Complex c1, c2; 
-	cout<<"enter real part of first no"<<endl;
-	cin>>c1.real;
-	cout<<"enter image part of first no"<<endl;
-	cin>>c1.imag;
-	cout<<"enter real part of second no"<<endl;
-	cin>>c2.real;
-	cout<<"enter real part of second no"<<endl;
-	cin>>c2.imag;
+	c1>>c2;
 	cout<<"Enter a choice"<<endl;
 	char c;
 	cin>>c;
 	if(c=='*')
 	{Complex c3 = c1*c2; 
-	c3.print(); }
+	c3<<c1; }
 	else
 	{Complex c3 = c1+c2; 
-	c3.print(); }
+	c3<<c1; }
+	
 } 
 
