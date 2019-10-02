@@ -8,7 +8,7 @@ class Node
 public:
 	int data;
 
-	Node *next;
+	Node *next = NULL;
 };
 
 void display(Node *head)
@@ -46,6 +46,26 @@ void addAtEnd(Node **head)
 	cout<<"Successfully added!"<<endl<<endl;
 }
 
+void addAtStart(Node** head){
+
+	int d;
+	Node* New;
+	New  = new(Node);
+
+	Node *start = *head;
+
+	std::cout << std::endl<< "Enter the data of new Node: ";
+
+	std::cin >> d;
+	New->data = d;
+
+	New->next = (*head);
+
+	(*head) = New;
+	cout<<"Successfully added!"<<endl<<endl;
+
+}
+
 int main()
 {
 
@@ -57,10 +77,10 @@ int main()
 
 	int c;
 
-	while (c != 3)
+	while (c != 4)
 	{
 
-		std::cout << endl<<"What do you want to do?\n1.Add at the end\n2.Display all elements\n3.Exit\n \nEnter: ";
+		std::cout << endl<<"What do you want to do?\n1.Add at the end\n2.Add at begining\n3.Display all elements\n4.Exit \nEnter: ";
 		std::cin >> c;
 
 		switch (c)
@@ -69,13 +89,16 @@ int main()
 		case 1:
 
 			addAtEnd(&first);
-
 			break;
 
 		case 2:
 
-			display(first);
+			addAtStart(&first);
+			break;
 
+		case 3:
+
+			display(first);
 			break;
 
 		default:
