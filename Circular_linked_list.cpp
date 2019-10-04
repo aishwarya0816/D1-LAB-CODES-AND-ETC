@@ -62,6 +62,14 @@ void display(Node** head){
 
 void addNode(Node** head){
 
+    if(*head == NULL){
+
+            cout<<endl<<"Enter data for the new node: ";
+            cin>>*head->data;
+            cout<<"Added succesfully"<<endl;
+            return;
+    }
+
     Node* new_node = new(Node);
     cout<<endl<<"Enter data for the new node: ";
     cin>>new_node->data;
@@ -83,9 +91,8 @@ void addNode(Node** head){
 int main(){
 
     Node* first = new(Node);
-    cout<<endl<<"Enter data for the new node: ";
-    cin>>first->data;
-    first->next = NULL;
+
+    first = NULL;
     //const Node* head = first;
 
     int c = 0;
